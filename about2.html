@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AJ Property Maintenance Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --primary-yellow: #fbbf24;
+            --light-blue: #dbeafe;
+            --light-yellow: #fef3c7;
+            --dark-blue: #1e3a8a;
+            --text-gray: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        /* Header */
+        .custom-header {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-link-custom {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link-custom:hover,
+        .nav-link-custom.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-link-custom.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .social-link {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-yellow);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .stats-card {
+            background: var(--light-blue);
+            border: none;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-text {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            padding: 100px 0;
+            background: var(--light-yellow);
+        }
+
+        .feature-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            height: 100%;
+            border-left: 5px solid var(--primary-yellow);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .accordion-item {
+            border: none;
+            border-radius: 10px !important;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            padding: 1.5rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .accordion-body {
+            background: white;
+            padding: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, #f59e0b 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--primary-blue);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-title {
+            color: var(--primary-yellow);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-yellow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .custom-header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-link-custom {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="custom-header fixed-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="index.html" class="nav-link-custom">Home</a>
+                        <a href="about.html" class="nav-link-custom active">About Us</a>
+                        <a href="services.html" class="nav-link-custom">Services</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="assets/img/painting-logo.png" alt="AJ Property Maintenance" class="logo-img">
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex justify-content-end gap-3 align-items-center">
+                        <a href="contact.html" class="nav-link-custom">Contact</a>
+                        <div class="social-icons d-flex gap-2">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="hero-title">About Our Company</h1>
+                    <p class="hero-subtitle">Professional Painting & Decorating Services in Cheshire</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <p>Welcome to AJ Property Maintenance Services, Cheshire's premier painting and decorating company. With over a decade of experience, we've been transforming homes and commercial spaces with our exceptional craftsmanship and attention to detail.</p>
+                        
+                        <p>Our team of skilled professionals is dedicated to delivering outstanding results that exceed your expectations. From interior painting to exterior renovations, wallpapering to flooring, we handle every project with the utmost care and precision.</p>
+                        
+                        <p>We pride ourselves on using only the highest quality materials and latest techniques to ensure your property looks stunning and stands the test of time. Our commitment to excellence has made us the trusted choice for hundreds of satisfied customers across Cheshire, Chester, and Wirral.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional Painters" class="img-fluid rounded">
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card stats-card">
+                        <div class="stats-number">500+</div>
+                        <div class="stats-text">Projects Completed</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card">
+                        <div class="stats-number">10+</div>
+                        <div class="stats-text">Years Experience</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card">
+                        <div class="stats-number">100%</div>
+                        <div class="stats-text">Customer Satisfaction</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card">
+                        <div class="stats-number">24/7</div>
+                        <div class="stats-text">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card">
+                        <i class="fas fa-award feature-icon"></i>
+                        <h3 class="feature-title">Expert Craftsmanship</h3>
+                        <p class="feature-text">Our skilled team brings years of experience and attention to detail to every project, ensuring flawless results that enhance your property's value.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card">
+                        <i class="fas fa-palette feature-icon"></i>
+                        <h3 class="feature-title">Premium Materials</h3>
+                        <p class="feature-text">We use only the highest quality paints, tools, and materials from trusted brands to guarantee long-lasting, beautiful finishes.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <h3 class="feature-title">Timely Delivery</h3>
+                        <p class="feature-text">We respect your time and schedule. Our projects are completed on time without compromising on quality or attention to detail.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h3 class="feature-title">Fully Insured</h3>
+                        <p class="feature-text">Our comprehensive insurance coverage gives you peace of mind, protecting both our workers and your property throughout the project.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card">
+                        <i class="fas fa-dollar-sign feature-icon"></i>
+                        <h3 class="feature-title">Competitive Pricing</h3>
+                        <p class="feature-text">We offer transparent, competitive pricing with no hidden costs. Get exceptional value for your investment in your property.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card">
+                        <i class="fas fa-thumbs-up feature-icon"></i>
+                        <h3 class="feature-title">Customer Satisfaction</h3>
+                        <p class="feature-text">Your satisfaction is our priority. We work closely with you throughout the project to ensure results that exceed your expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How long does a typical painting project take?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The duration depends on the size and complexity of your project. A standard room typically takes 1-2 days, while larger homes or commercial spaces may take 1-2 weeks. We'll provide a detailed timeline during your consultation.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Do you provide free estimates?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! We provide completely free, no-obligation estimates for all our services. Our team will visit your property, assess the work needed, and provide a detailed quote with transparent pricing.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What types of paint do you use?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We use premium quality paints from leading brands including Dulux, Crown, and Farrow & Ball. We'll recommend the best paint type for your specific needs, whether it's washable emulsion for high-traffic areas or specialized exterior paints.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Are you insured and licensed?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! We are fully insured with comprehensive public liability insurance and all necessary trade certifications. This protects both our workers and your property throughout the project.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Do you clean up after the job?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we take pride in leaving your property spotless. Our service includes thorough cleanup of all work areas, proper disposal of materials, and protecting your furniture and flooring throughout the project.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    What areas do you serve?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We serve throughout Cheshire, Chester, Wirral, Ellesmere Port, Great Sutton, and surrounding areas. Contact us to confirm if we cover your specific location.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="cta-title">Ready to Transform Your Space?</h2>
+                    <p class="cta-text">Get your free estimate today and discover why we're Cheshire's most trusted painting and decorating company.</p>
+                    <button class="btn btn-primary-custom">Get Free Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">AJ Property Maintenance Services</h4>
+                    <p class="mb-3">Professional painting and decorating services across Cheshire. Quality workmanship, competitive prices, and complete customer satisfaction guaranteed.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Services</h5>
+                    <a href="#" class="footer-link">Interior Painting</a>
+                    <a href="#" class="footer-link">Exterior Painting</a>
+                    <a href="#" class="footer-link">Wallpapering</a>
+                    <a href="#" class="footer-link">Flooring</a>
+                    <a href="#" class="footer-link">Decorating</a>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Company</h5>
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Our Team</a>
+                    <a href="#" class="footer-link">Reviews</a>
+                    <a href="#" class="footer-link">Gallery</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 109 Green Ln, Great Sutton, Cheshire, CH66 4LQ UK</p>
+                    <p><i class="fas fa-phone me-2"></i> 123456789</p>
+                    <p><i class="fas fa-envelope me-2"></i> ajpropertyservices@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AJ Property Maintenance Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
